@@ -5,12 +5,13 @@ Twitterwall using websockets.
 
 !! Attention !!
 
-Don't use this code in production. Is is not safe and contains for sure a xss vulnerability.
+Don't use this code in production. It is not safe and contains for sure a xss vulnerability.
 
-This is only some playing with tornado websockets and the twitter streaming api
+This is only some playing with tornado, websockets and the twitter streaming api
 
 
 Requirements:
+
   Create an app on twitter to have access to the streaming api.
 
   python3 modules
