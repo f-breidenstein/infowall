@@ -1,0 +1,89 @@
+body {
+        text-align: center;
+        min-width: 500px;
+        background-color:rgba(221, 215, 215, 1);
+        font-family: sans-serif;
+}
+
+p {
+    margin-top:5px;
+    margin-bottom:5px;
+}
+span.names {
+    text-align: left;
+    vertical-align:top;
+    font-size:16pt;
+}
+
+span.username {
+    margin-right:15px;
+    margin-left:5px;
+    font-size:16pt;
+}
+
+span.nickname {
+    font-size:8pt;
+}
+
+span.timestamp {
+    font-size:8pt;
+    color: rgba(148, 164, 176, 1);
+}
+
+img.profile_img {
+    vertical-align:middle;
+}
+
+div.tweet {
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:5px;
+    max-width:480px;
+	width:95%;
+	border:none;
+	border-radius:10px;
+	/*box-shadow: 3px 3px 5px #888888;*/
+	font-family:sans-serif;
+    text-align:left;
+    padding:2%;
+    word-wrap:break-word;
+    background-color:white;
+
+}
+
+.connected {
+    background-color: #00ff00;
+}
+
+.disconnected {
+    background-color: #ff0000;
+}
+
+#connection_icon {
+    min-width: 22px;
+    min-height: 22px;
+    margin-left:22px;
+    display: inline-flex;
+	border:none;
+	border-radius:5px;
+}
+
+td.walltitle {
+    text-align: center;
+    height: 1em;
+ 	border:none;
+	border-radius:10px;
+	/*box-shadow: 3px 3px 5px #888888;   */
+    background-color:rgb(138, 142, 165);
+    color:#FFFFFF;
+}
+
+
+div.wallstrip {
+    display:inline;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 5px;
+    overflow-bottom:auto;
+    border: 1px solid black;
+}
