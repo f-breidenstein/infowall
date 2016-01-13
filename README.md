@@ -11,6 +11,8 @@ This is only some playing with tornado websockets and the twitter streaming api
 
 
 Requirements:
+  Create a app on twitter to have access to the streaming api.
+
   python3 modules
   * tornado
   * twitter
