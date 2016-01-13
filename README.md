@@ -1,20 +1,24 @@
 infowall
 ========
 
-Twitterwall like Webpage using websockets.
+Twitterwall using websockets.
+
+!! Attention !!
+
+Don't use this code in production. Is is not safe and contains for sure a xss vulnerability.
+
+This is only some playing with tornado websockets and the twitter streaming api
 
 Requirements:
-  python2 modules
+  python3 modules
   * tornado
   * twitter
 
 Quickstart:
   * clone the repo
-  * edit backend/config.py
-  * edit frontend/js/config.js
-  * copy content of "frontend" to the target dir on webserver
-  * python2 backend/tornado_server.py
-  * python2 backend/tornado_twitter.py
-  * open a browser (with websockets enabled) an navigate to the target dir
+  * edit config.py
+  * edit html/config.js
+  * python tornado_server.py
+  * python tornado_twitter.py
+  * open a browser (with websockets enabled) an navigate to the target dir (file://foobar/infowall/html/index.html or so)
 
-More info will follow.
