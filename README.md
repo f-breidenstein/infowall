@@ -10,13 +10,12 @@ Don't use this code in production. It is not safe and contains for sure a xss vu
 
 ### Requirements
 
-  * Create an app on twitter to have access to the streaming API
+  * Create an app to have access to the API over here: https://apps.twitter.com/
   * Python 3
   * tornado
   * twitter
 
 ### Quickstart
-  * clone the repo
   * copy example.config.py to config.py
   * edit config.py
   * edit html/config.js
