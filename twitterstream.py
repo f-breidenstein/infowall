@@ -11,7 +11,8 @@ Hangup = {'hangup': True}
 DecodeError = {'hangup': True, 'decode_error': True}
 HeartbeatTimeout = {'hangup': True, 'heartbeat_timeout': True}
 
-class TwitterWallService:
+
+class TwitterWallService(object):
     def __init__(self):
 
         # OAuth stuff
@@ -21,18 +22,17 @@ class TwitterWallService:
         self.auth = None
         if not os.path.exists(self.creds):
             oauth_dance(
-    		config.OAuth.username,
-                config.OAuth.consumer_key,
-                config.OAuth.consumer_secret,
-                self.creds)
+                    config.OAuth.username,
+                    config.OAuth.consumer_key,
+                    config.OAuth.consumer_secret,
+                    self.creds)
 
         (self.oauth_token, self.oauth_secret) = read_token_file(self.creds)
         self.auth = OAuth(
-            self.oauth_token,
-            self.oauth_secret,
-            config.OAuth.consumer_key,
-            config.OAuth.consumer_secret)
-
+                self.oauth_token,
+                self.oauth_secret,
+                config.OAuth.consumer_key,
+                config.OAuth.consumer_secret)
 
         self.keywords = None
         self.filterstr = None
@@ -40,9 +40,9 @@ class TwitterWallService:
         self.callback = None
         self.stream = None
         self.stream_args = dict(
-            timeout=config.TwitterStream.timeout,
-            block=config.TwitterStream.block,
-            heartbeat_timeout=config.TwitterStream.heartbeat_timeout)
+                timeout=config.TwitterStream.timeout,
+                block=config.TwitterStream.block,
+                heartbeat_timeout=config.TwitterStream.heartbeat_timeout)
         self.query_args = dict()
 
     def setKeywords(self, keywords):
@@ -53,7 +53,7 @@ class TwitterWallService:
                 self.filterstr += ","
             self.filterstr += ",".join(words)
 
-        print (self.filterstr)
+        print(self.filterstr)
         self.query_args = dict()
         if self.filterstr:
             # https://dev.twitter.com/docs/streaming-apis/parameters#track
@@ -73,7 +73,7 @@ class TwitterWallService:
             self.tweet_iter = self.stream.statuses.sample()
         for tweet in self.tweet_iter:
             if tweet is None:
-                 printNicely("-- None --")
+                printNicely("-- None --")
             elif tweet is Timeout:
                 printNicely("-- Timeout --")
             elif tweet is HeartbeatTimeout:
@@ -85,16 +85,15 @@ class TwitterWallService:
                     # We parse the text to sort tweet into right channel
                     for keywords in self.keywords:
                         for word in keywords:
-                            r = re.search(word,tweet.get("text"),re.IGNORECASE)
+                            r = re.search(word, tweet.get("text"), re.IGNORECASE)
                             if not r:
                                 continue
                             else:
-                                tweet["channel"] = "," .join(keywords)
+                                tweet["channel"] = ",".join(keywords)
                                 self.callback(json.dumps(tweet))
             else:
                 printNicely("-- Some data: " + str(tweet))
 
-    def setCallback(self,callback_function=None):
+    def setCallback(self, callback_function=None):
         if callback_function:
             self.callback = callback_function
-
