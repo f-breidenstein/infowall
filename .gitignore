@@ -1,0 +1,6 @@
+.idea/
+.ropeproject/
+.venv/
+__pycache__/
+config.py
+
